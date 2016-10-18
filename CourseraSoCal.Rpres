@@ -1,0 +1,113 @@
+SoCal Edison Monthly Solar Cost Savings Calculator
+========================================================
+author: sbsundog
+date:   October 10, 2016
+autosize: true
+font-family: 'Helvetica'
+
+
+
+
+Project Objectives
+========================================================
+
+- Provide an easy way to calculate monthly solar system savings
+
+   - Only required entry is number of kilowatts consumed
+   - Allow for customization of kilowatt tiers, tier rates, and local and state fees
+   - Allow capital cost of solar system and carrying cost to be user driven
+
+- Demonstrate Reactive Programming Using Shiny 
+
+- Demonstrate Use of R Presentation 
+
+- Fulfill, in part, the Requirements for Coursera Class: Developing Data Products
+
+Alternative Solar calculators
+========================================================
+
+- Aren't particularly, consumer friendly
+
+- Trojan horse marketing tools 
+   - To find out customer identity
+   - To sway customer to a certain installer or panel
+   
+- Obfuscates the key question: how much does a resident save for what he uses
+
+- Aren't up to date 
+   
+
+Key Assumptions 
+========================================================
+
+- Current Residential rates and fees for SoCal Edison in southern California are the default structure  
+which may not be applicable elsewhere
+
+- Average monthly Kilowatts produced by solar system is slightly more than the monthly residential usage
+
+- Accuracy of projected savings is based on actual 2016 billing  data from one very happy SoCal Edison customer
+
+- Internet access
+
+- Capital costs are inclusive of all costs for 6.08 KW System, 19 panels, in July, 2016
+
+
+Calculator Inputs
+========================================================
+
+- Kilowatt hours Used: Number of kilowatts of eletricity used during billing period
+- Tier 1, Tier 2, Tier 3 Rates: Cost per kilowatt used in the tier
+- Tier 1, Tier 2 Ceiling: Maximum Number of Kilowatts allowed before subsequent tier cost struture is used
+- Basic Charge: Fixed charge amount, independent of usage
+- Bond Rate: Rate charged for Department of Water Resources costs for energy
+- City Tax: Tax rate on usage at city  tax jurisdictions applied against billed amount
+- State Tax: Tax rate on at state tax jurisdiction applied against kilowatt hours used
+- City fee: Local fixed charge rate on billed amount less 2 dollars
+- Energy Credit: A discount rate, quite miniscule, applied against kilowatt hours used
+- Solar Bill: Fixed monthly charge for being connected to grid and using SoCal Edison for solar system        shortfalls
+- Solar System Cost: Cost of the solar system, including material costs, labor, taxes and fees
+-Interest Rate: Cost of capital, 25 year t-bill rate (2.5%) or 5 year cd (< 1%)
+
+
+Calculator Outputs
+========================================================
+
+- Net Savings: Cost difference between a projected non Solar system usage bill and a Solar Bill
+
+- Carrying Cost: Imputed alternative usage dollars foregone in interest/investment earnings
+
+- Real Savings: Cost difference between Net savings and Carrying Cost
+
+
+Slide Showing Savings Per Kw Hour
+========================================================
+:
+```{r echo=FALSE}
+kw.used <- c(86, 128,  159,  211,  242,  294, 315, 367, 441, 546, 609, 755, 860, 975)
+ kw.savings <- c(-42.34, -34.91,-29.42, -20.22, -14.32,-4.63, 0.67,13.11,32.41,58.86,77.62, 123.77, 156.97, 193.32)
+ 
+ plot(kw.used, kw.savings, main="Savings Per kW Hour Using Solar")
+```
+
+Possible Extensions and Enhancements 
+========================================================
+
+The basic idea of this project is to compute projected monthly savings using a residential solar system
+rather than electricity from SoCal Edison. 
+
+
+A few extensions of this basic idea might include:
+
+  
+- Ability to store and track each month's savings in a history file    
+  
+  
+- Ability to store default values and retrieve them   
+  
+  
+- Add one or two additional user supplied variables for additional state or local taxes/carrriage fees 
+
+- Enter amount of solar energy produced by the solar system 
+
+    
+
